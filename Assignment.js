@@ -25,54 +25,53 @@ console.log(Customar3);
 
 //Third Problem;BrickCalculator
 
-function brickCalculator(n) {
-  if (n <= 10) {
-    numberOfBricks110 = n * 15 * 1000;
-    return numberOfBricks110;
+function brickCalculator(floor) {
+  let floorDataType = Number.isInteger(floor);
+  if (floorDataType == true) {
+    if (floor > 0) {
+      if (floor <= 10) {
+        let totalFeet = floor * 15;
+        let totalBricks = totalFeet * 1000;
+        return totalBricks + " Bricks";
+      } else if (floor > 10 && floor <= 20) {
+        let floorFeet12 = floor - 10;
+        let floorFeet15 = floor - floorFeet12;
+        let totalFeet = floorFeet15 * 15 + floorFeet12 * 12;
+        let totalBricks = totalFeet * 1000;
+        return totalBricks;
+      } else {
+        let floorFeet10 = floor - 20;
+        let totalFeet = 10 * 15 + 10 * 12 + floorFeet10 * 10;
+        let totalBricks = totalFeet * 1000;
+        return totalBricks;
+      }
+    } else {
+      return "Building Floor Should Not Be 0 Or Negative";
+    }
+  } else {
+    return "Input Should Be integer";
   }
-  if (n >= 11) {
-    numberOfBricks1120 = (n - 10) * 12 * 1000;
-    return numberOfBricks1120;
-  }
-  if (n > 20) {
-    numberOfBricks20Plus = (n - 20) * 10 * 1000;
-    return numberOfBricks20Plus;
-  }
-  var totalNumberOfBricks =
-    numberOfBricks110 + numberOfBricks1120 + numberOfBricks20Plus;
-//   return totalNumberOfBricks;
 }
 
-var House1 = brickCalculator(1);
-var House2 = brickCalculator(11);
-var House3 = brickCalculator(9);
-var House4 = brickCalculator(17);
-var House5 = brickCalculator(23);
-var House6 = brickCalculator(45);
-
-console.log("Total Number of Bricks of House 1 : ", House1);
-console.log("Total Number of Bricks of House 2 : ", House2);
-console.log("Total Number of Bricks of House 3 : ", House3);
-console.log("Total Number of Bricks of House 4 : ", House4);
-console.log("Total Number of Bricks of House 5 : ", House5);
-console.log("Total Number of Bricks of House 6 : ", House6);
-
-
+let floor = 21;
+let totalBricks = brickCalculator(floor);
+console.log(totalBricks);
 
 //4th Problem
 
-var FriendsName=["Dhrubo","Dhruboish","Amdadul","Kaosar","Khayer","Tasnim","Jocky","Olu","Sumon","S"];
+var FriendsName = ["Dhrubo","Dhruboish","Amdadul","Kaosar","Khayer","Tasnim","Jocky","Olu","Sumon","Sle",
+];
 
-function tinyFriend(FriendsName){
-    var sm=FriendsName.length;
-    var smallest;
-    for(var i=0;i<FriendsName.length;i++){
-        if(FriendsName[i].length<sm){
-            sm=FriendsName[i].length;
-            smallest= FriendsName[i];
-        }
+function tinyFriend(FriendsName) {
+  var sm = FriendsName.length;
+  var smallest;
+  for (var i = 0; i < FriendsName.length; i++) {
+    if (FriendsName[i].length < sm) {
+      sm = FriendsName[i].length;
+      smallest = FriendsName[i];
     }
-    return smallest;
+  }
+  return smallest;
 }
-var Result=tinyFriend(FriendsName);
+var Result = tinyFriend(FriendsName);
 console.log(Result);
